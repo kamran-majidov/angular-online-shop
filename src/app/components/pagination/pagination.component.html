@@ -1,0 +1,29 @@
+<nav *ngIf="totalPages > 1" class="rounded-xl">
+  <ul class="inline-flex -space-x-px text-sm">
+    <li *ngIf="currentPage > 1">
+      <button
+        class="px-3 h-8 text-gray-500 bg-white border border-gray-300 rounded-s-lg hover:bg-gray-100"
+        (click)="pageChanged.emit(currentPage - 1)"
+      >
+        <
+      </button>
+    </li>
+    <li *ngFor="let _ of [].constructor(totalPages); let i = index">
+      <button
+        class="px-3 h-8 border border-gray-300 hover:bg-gray-100"
+        [class.active]="currentPage === i + 1"
+        (click)="pageChanged.emit(i + 1)"
+      >
+        {{ i + 1 }}
+      </button>
+    </li>
+    <li *ngIf="currentPage < totalPages">
+      <button
+        class="px-3 h-8 text-gray-500 bg-white border border-gray-300 rounded-e-lg hover:bg-gray-100"
+        (click)="pageChanged.emit(currentPage + 1)"
+      >
+        >
+      </button>
+    </li>
+  </ul>
+</nav>

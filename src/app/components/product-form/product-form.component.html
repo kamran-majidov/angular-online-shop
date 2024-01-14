@@ -1,0 +1,135 @@
+<div class="px-10 py-8 bg-gray-100 border border-gray-300 rounded-lg shadow">
+  <form [formGroup]="productForm" (ngSubmit)="onSubmit()" class="space-y-6">
+    <div>
+      <label for="title" class="block text-sm font-medium text-gray-700">
+        Title
+      </label>
+      <div class="mt-1 relative rounded-md">
+        <input
+          id="title"
+          formControlName="title"
+          type="text"
+          autocomplete="title"
+          class="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md placeholder-gray-400"
+        />
+        <div
+          *ngIf="
+            productForm.get('title')?.errors?.['required'] &&
+            productForm.get('title')?.touched
+          "
+          class="text-red-500 text-sm"
+        >
+          Title is required
+        </div>
+        <div
+          *ngIf="
+            productForm.get('title')?.errors?.['minlength'] &&
+            productForm.get('title')?.touched
+          "
+          class="text-red-500 text-sm"
+        >
+          Title must be at least 6 characters
+        </div>
+      </div>
+    </div>
+
+    <div>
+      <label for="price" class="block text-sm font-medium text-gray-700">
+        Price
+      </label>
+      <div class="mt-1 relative rounded-md">
+        <input
+          id="price"
+          formControlName="price"
+          type="number"
+          autocomplete="price"
+          class="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md placeholder-gray-400"
+        />
+        <div
+          *ngIf="
+            productForm.get('price')?.errors?.['required'] &&
+            productForm.get('price')?.touched
+          "
+          class="text-red-500 text-sm"
+        >
+          Price is required
+        </div>
+        <div
+          *ngIf="
+            productForm.get('price')?.errors?.['minlength'] &&
+            productForm.get('price')?.touched
+          "
+          class="text-red-500 text-sm"
+        >
+          Price must be at least 1 character
+        </div>
+      </div>
+    </div>
+
+    <div>
+      <label for="description" class="block text-sm font-medium text-gray-700">
+        Description
+      </label>
+      <div class="mt-1 relative rounded-md">
+        <textarea
+          id="description"
+          formControlName="description"
+          rows="4"
+          class="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md placeholder-gray-400"
+        ></textarea>
+        <div
+          *ngIf="
+            productForm.get('description')?.errors?.['required'] &&
+            productForm.get('description')?.touched
+          "
+          class="text-red-500 text-sm"
+        >
+          Description is required
+        </div>
+      </div>
+    </div>
+
+    <div>
+      <label for="images" class="block text-sm font-medium text-gray-700">
+        Images (Array of URLs)
+      </label>
+      <div class="mt-1 relative rounded-md">
+        <textarea
+          id="images"
+          rows="4"
+          formControlName="images"
+          class="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md placeholder-gray-400"
+        ></textarea>
+        <div
+          *ngIf="
+            productForm.get('images')?.errors?.['required'] &&
+            productForm.get('images')?.touched
+          "
+          class="text-red-500 text-sm"
+        >
+          Images are required
+        </div>
+        <div
+          *ngIf="
+            productForm.get('images')?.errors?.['pattern'] &&
+            productForm.get('images')?.touched
+          "
+          class="text-red-500 text-sm"
+        >
+          Please provide valid image URLs (must end in .png, .jpg, .jpeg, or
+          .svg).
+        </div>
+      </div>
+    </div>
+
+    <div>
+      <button
+        [disabled]="!productForm.valid"
+        type="submit"
+        class="w-full py-2 px-4 text-sm font-medium text-white bg-green-500 rounded-md hover:bg-green-600 disabled:bg-gray-500"
+      >
+        Submit
+      </button>
+    </div>
+  </form>
+</div>

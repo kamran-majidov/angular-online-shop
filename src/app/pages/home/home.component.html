@@ -1,0 +1,67 @@
+<div class="bg-gray-100 h-screen flex items-center justify-center">
+  <div class="max-w-4xl bg-white rounded-lg shadow-xl p-8">
+    <h1 class="text-4xl font-extrabold text-center text-gray-800 mb-6">
+      Welcome to our Online Shop Project
+    </h1>
+    <p class="text-gray-700 text-lg mb-4 font-semibold">
+      This project is a demonstration of the Angular framework, showcasing its
+      capabilities in creating dynamic web applications.
+    </p>
+    <p class="text-gray-700 text-lg mb-4 font-semibold">
+      <strong>API Integration:</strong>
+      We are using the
+      <a
+        href="https://api.escuelajs.co/docs#/"
+        class="text-blue-600 hover:text-blue-700 underline"
+      >
+        Platzi Fake Store API
+      </a>
+      to fetch product categories and other data. This public API's data can
+      change at any time.
+    </p>
+    <p class="text-gray-700 text-lg mb-4 font-semibold">
+      <strong>Authentication:</strong>
+      For login and registration, we utilize local storage. This method is used
+      for demonstration purposes to show how Angular can handle user
+      authentication and data management.
+    </p>
+    <div *ngIf="(isLoggedIn$ | async) === false" class="flex justify-center space-x-4 mb-4">
+      <a
+        routerLink="/sign-in"
+        class="bg-red-500 hover:bg-red-600 text-white font-bold py-2 px-4 rounded shadow-lg"
+      >
+        Log in
+      </a>
+      <a
+        routerLink="/sign-up"
+        class="bg-green-500 hover:bg-green-600 text-white font-bold py-2 px-4 rounded shadow-lg"
+      >
+        Register
+      </a>
+    </div>
+    <p class="text-gray-700 text-lg mb-4 font-semibold">
+      <strong>Explore:</strong>
+      Check out our amazing
+      <a
+        routerLink="/products"
+        class="text-red-500 hover:text-purple-600 underline"
+      >
+        products
+      </a>
+      or discover various
+      <a
+        routerLink="/categories"
+        class="text-green-500 hover:text-pink-600 underline"
+      >
+        categories
+      </a>
+      .
+    </p>
+    <p class="text-gray-700 text-lg font-semibold">
+      <strong>Enhanced User Features:</strong>
+      After registering, you'll be able to add products to your cart, favorite
+      items, edit/add/remove products as well as categories. Registered users
+      can also proceed to checkout and enter their details for the order.
+    </p>
+  </div>
+</div>

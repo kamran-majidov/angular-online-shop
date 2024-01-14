@@ -1,27 +1,39 @@
-# AngularApp
+# Online Shop Project
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 17.0.8.
+Welcome to our Online Shop Project. This project is a demonstration of the Angular framework, showcasing its capabilities in creating dynamic web applications.
 
-## Development server
+## Features
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+- **API Integration**: We use the Platzi Fake Store API to fetch product categories and other data. Please note that the data from this public API can change at any time.
+- **Authentication**: For login and registration, we utilize local storage. This method is used for demonstration purposes to illustrate how Angular can handle user authentication and data management.
+- **Explore**: Check out our amazing products or discover various categories.
+- **Enhanced User Features**: After registering, you'll be able to add products to your cart, favorite items, edit/add/remove products as well as categories. Registered users can also proceed to checkout and enter their details for the order.
 
-## Code scaffolding
+## Getting Started
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+These instructions will get you a copy of the project up and running on your local machine for development purposes.
 
-## Build
+### Prerequisites
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+What things you need to install the software and how to install them:
 
-## Running unit tests
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+### Installing
 
-## Running end-to-end tests
+A step-by-step guide to get your development environment running:
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+1. Clone the repository to your local machine.
+2. Run `npm install` to install all dependencies.
+3. Use the following scripts for various tasks:
 
-## Further help
+  - `npm start` - Starts the development server.
+  - `npm run build` - Builds the project for production.
+  - `npm run watch` - Runs the build process in watch mode.
+  - `npm run lint` - Lints the project files using ESLint.
+  - `npm run format` - Formats the code using Prettier.
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+## Built With
+
+* [Angular](https://angular.io/) - The web framework used
+* [Platzi Fake Store API](https://fakestoreapi.com/) - API for product data
+* [Tailwind CSS](https://tailwindcss.com/) - For styling

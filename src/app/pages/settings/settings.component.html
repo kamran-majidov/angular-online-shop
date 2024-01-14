@@ -1,0 +1,140 @@
+<div class="flex justify-center items-center mt-8">
+  <form
+    [formGroup]="userForm"
+    (ngSubmit)="updateUser()"
+    class="w-full max-w-md p-6 rounded-lg shadow-lg bg-white"
+  >
+    <h2 class="text-2xl font-semibold text-gray-900 mb-6">Profile</h2>
+    <p class="text-sm text-gray-600 mb-6">
+      This information will be displayed publicly so be careful what you share.
+    </p>
+    <div class="grid grid-cols-1 gap-6">
+      <div>
+        <label for="name" class="block text-sm font-medium text-gray-900">
+          Name
+        </label>
+        <input
+          formControlName="name"
+          type="text"
+          id="name"
+          class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+        />
+        <div
+          *ngIf="
+            userForm.get('name')?.errors?.['required'] &&
+            userForm.get('name')?.touched
+          "
+          class="text-red-500 text-sm"
+        >
+          Name is required
+        </div>
+      </div>
+      <div>
+        <label for="password" class="block text-sm font-medium text-gray-900">
+          Password
+        </label>
+        <input
+          formControlName="password"
+          type="password"
+          id="password"
+          class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+        />
+        <div
+          *ngIf="
+            userForm.get('password')?.errors?.['required'] &&
+            userForm.get('password')?.touched
+          "
+          class="text-red-500 text-sm"
+        >
+          Password is required
+        </div>
+        <div
+          *ngIf="
+            userForm.get('password')?.errors?.['minlength'] &&
+            userForm.get('password')?.touched
+          "
+          class="text-red-500 text-sm"
+        >
+          Password must be at least 3 characters
+        </div>
+      </div>
+      <div>
+        <label for="email" class="block text-sm font-medium text-gray-900">
+          Email address
+        </label>
+        <input
+          id="email"
+          formControlName="email"
+          type="email"
+          autocomplete="email"
+          class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+        />
+        <div
+          *ngIf="
+            userForm.get('email')?.errors?.['required'] &&
+            userForm.get('email')?.touched
+          "
+          class="text-red-500 text-sm"
+        >
+          Email is required
+        </div>
+        <div
+          *ngIf="
+            userForm.get('email')?.errors?.['email'] &&
+            userForm.get('email')?.touched
+          "
+          class="text-red-500 text-sm"
+        >
+          Invalid email format
+        </div>
+      </div>
+      <div>
+        <label for="avatar" class="block text-sm font-medium text-gray-900">
+          Avatar
+        </label>
+        <input
+          id="avatar"
+          formControlName="avatar"
+          class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+        />
+        <div
+          *ngIf="
+            userForm.get('avatar')?.errors?.['required'] &&
+            userForm.get('avatar')?.touched
+          "
+          class="text-red-500 text-sm"
+        >
+          Avatar URL is required
+        </div>
+        <div
+          *ngIf="
+            userForm.get('avatar')?.errors?.['pattern'] &&
+            userForm.get('avatar')?.touched
+          "
+          class="text-red-500 text-sm"
+        >
+          Please provide a valid image URL (must end in .png, .jpg, .jpeg, or
+          .svg).
+        </div>
+      </div>
+      <div>
+        <label for="role" class="block text-sm font-medium text-gray-900">
+          Role
+        </label>
+        <input
+          [disabled]="true"
+          formControlName="role"
+          id="role"
+          class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+        />
+      </div>
+    </div>
+    <button
+      [disabled]="!userForm.valid"
+      type="submit"
+      class="mt-6 w-full py-2 px-4 text-sm font-medium text-white bg-green-500 rounded-md hover:bg-green-600 disabled:bg-gray-500"
+    >
+      Save
+    </button>
+  </form>
+</div>

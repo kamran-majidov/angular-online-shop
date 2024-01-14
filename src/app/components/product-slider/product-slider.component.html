@@ -1,0 +1,79 @@
+<div class="relative w-full max-w-screen-lg mx-auto">
+  <div
+    *ngFor="let image of product.images; let i = index"
+    [class.hidden]="i !== currentSlideIndex"
+    class="transition-all duration-700 ease-in-out"
+  >
+    <img
+      src="{{ image }}"
+      width="300"
+      height="300"
+      class="w-full object-cover"
+      alt="{{ product.title }}"
+      appImageErrorHandler
+    />
+  </div>
+  <div>
+    <button
+      *ngIf="!(product.images.length <= 1)"
+      (click)="changeSlide('prev')"
+      type="button"
+      class="bg-white rounded-xl absolute top-1/2 left-3 -translate-y-1/2 z-10 flex items-center justify-center h-7 w-7 cursor-pointer"
+      data-carousel-prev
+    >
+      <svg
+        class="w-3 h-3 text-green-500"
+        aria-hidden="true"
+        xmlns="http://www.w3.org/2000/svg"
+        fill="none"
+        viewBox="0 0 6 10"
+      >
+        <path
+          stroke="currentColor"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width="2"
+          d="M5 1 1 5l4 4"
+        />
+      </svg>
+    </button>
+    <button
+      *ngIf="!(product.images.length <= 1)"
+      (click)="changeSlide('next')"
+      type="button"
+      class="bg-white rounded-xl absolute top-1/2 right-3 -translate-y-1/2 z-10 flex items-center justify-center h-7 w-7 cursor-pointer"
+      data-carousel-next
+    >
+      <svg
+        class="w-3 h-3 text-green-500"
+        aria-hidden="true"
+        xmlns="http://www.w3.org/2000/svg"
+        fill="none"
+        viewBox="0 0 6 10"
+      >
+        <path
+          stroke="currentColor"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width="2"
+          d="m1 9 4-4-4-4"
+        />
+      </svg>
+      <span class="sr-only">Next</span>
+    </button>
+  </div>
+
+  <div
+    *ngIf="!(product.images.length <= 1)"
+    class="absolute bottom-3 left-1/2 transform -translate-x-1/2 flex space-x-2"
+  >
+    <div
+      *ngFor="let image of product.images; let j = index"
+      (click)="setCurrentSlide(j)"
+      (keyup.enter)="setCurrentSlide(j)"
+      tabindex="0"
+      class="w-2 h-2 rounded-full bg-white cursor-pointer"
+      [class.active]="j === currentSlideIndex"
+    ></div>
+  </div>
+</div>
